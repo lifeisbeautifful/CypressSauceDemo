@@ -4,5 +4,6 @@ describe('Add items to cart', () => {
   it("Add first item to cart", () => {
     cy.contains("Add to cart").click();
     cy.contains("1").should('be.visible');
+    
   })
 })
