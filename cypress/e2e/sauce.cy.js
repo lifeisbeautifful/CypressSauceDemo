@@ -1,9 +1,15 @@
-describe('Add items to cart', () => {
- before("Login as a standart user", () => {cy.login()})
+import { ProductPage } from "./Pages/ProductsPage"
 
-  it("Add first item to cart", () => {
-    cy.contains("Add to cart").click();
-    cy.contains("1").should('be.visible');
-    
+describe('Add items to cart', () => {
+
+ beforeEach("Login as a standart user", () => {cy.loginAsStandartUser()})
+
+  it("Add one item to cart", () => {
+    ProductPage.addItemToCart("Sauce Labs Backpack")
+    ProductPage.cartItemQuantityEquals("1");
+  })
+
+  afterEach("Clear cart", () => {
+    ProductPage.clearShoppingCart()
   })
 })

@@ -10,13 +10,13 @@
 //
 //
 // -- This is a parent command --
-Cypress.Commands.add('login', () => 
+Cypress.Commands.add('loginAsStandartUser', () => 
 { 
-    cy.visit('/')
-    cy.get("#user-name").type("standard_user")
-    cy.get("#password").type("secret_sauce")
-    cy.get("#login-button").click()
-    cy.url().should('include', "https://www.saucedemo.com/inventory.html")
+        cy.visit('/')
+        cy.get('#user-name').type(Cypress.env('userNameStandart'))
+        cy.get('#password').type(Cypress.env('passwordStandart'))
+        cy.get('#login-button').click()
+        cy.url().should('include', "https://www.saucedemo.com/inventory.html") 
 })
 //
 //
